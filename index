@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>چهلمین روز درگذشت</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1e);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Background particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* Main container */
+        .memorial-container {
+            background: rgba(30, 30, 45, 0.85);
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        /* Header */
+        .memorial-header {
+            margin-bottom: 40px;
+        }
+        
+        .memorial-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #f8f8f8, #d0d0d0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+        
+        .memorial-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #a0a0b0;
+            margin-bottom: 30px;
+        }
+        
+        /* Candles */
+        .candles-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            gap: 20px;
+        }
+        
+        .candle {
+            position: relative;
+            width: 25px;
+            height: 120px;
+            background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+            border-radius: 3px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .candle::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ff9d00, #ff6200);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 0 20px #ff6200, 0 0 40px #ff9d00;
+            animation: flicker 1.5s infinite alternate;
+        }
+        
+        .candle::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+        }
+        
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateX(-50%) scale(0.95);
+            }
+        }
+        
+        /* Content */
+        .memorial-content {
+            font-size: 1.4rem;
+            line-height: 2;
+            margin: 40px 0;
+            color: #d0d0d0;
+        }
+        
+        .memorial-details {
+            background: rgba(40, 40, 60, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .detail-item {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .detail-icon {
+            color: #ff9d00;
+            font-size: 1.5rem;
+        }
+        
+        .detail-text {
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        .memorial-footer {
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: #a0a0b0;
+            font-style: italic;
+        }
+        
+        /* Decorative elements */
+        .decoration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .decoration::before,
+        .decoration::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 157, 0, 0.1), transparent);
+            border-radius: 50%;
+        }
+        
+        .decoration::before {
+            top: -100px;
+            right: -100px;
+        }
+        
+        .decoration::after {
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .memorial-container {
+                padding: 30px 20px;
+            }
+            
+            .memorial-title {
+                font-size: 2.2rem;
+            }
+            
+            .memorial-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .memorial-content {
+                font-size: 1.2rem;
+            }
+            
+            .candle {
+                height: 100px;
+            }
+            
+            .detail-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Main container -->
+    <div class="memorial-container">
+        <div class="decoration"></div>
+        
+        <div class="memorial-header">
+            <h1 class="memorial-title">چهلمین روز درگذشت</h1>
+            <h2 class="memorial-subtitle">روحشان شاد و یادشان گرامی باد</h2>
+        </div>
+        
+        <!-- Candles -->
+        <div class="candles-container">
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="memorial-content">
+            با نهایت تأسف و تأثر، مراسم چهلمین روز درگذشت عزیز از دست رفته را برگزار می‌کنیم
+        </div>
+        
+        <!-- Details -->
+        <div class="memorial-details">
+            <div class="detail-item">
+                <i class="fas fa-map-marker-alt detail-icon"></i>
+                <span class="detail-text">باغ طوطی</span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-clock detail-icon"></i>
+                <span class="detail-text">ساعت 6 عصر</span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-user detail-icon"></i>
+                <span class="detail-text">خانم حاجیه مجتهدی</span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-users detail-icon"></i>
+                <span class="detail-text">به همراه خانواده محترم</span>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="memorial-footer">
+            از حضور گرم شما در این مراسم سپاسگزاریم
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles on page load
+        window.addEventListener('load', createParticles);
+    </script>
+</body>
+</html>
