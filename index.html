@@ -6,6 +6,9 @@
     <title>صلوات شمار برای مادر</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&family=Lalezar&display=swap');
         
@@ -352,6 +355,27 @@
             padding: 20px;
         }
         
+        /* Firebase connection status */
+        .connection-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            z-index: 1000;
+        }
+        
+        .connected {
+            background-color: rgba(76, 175, 80, 0.8);
+            color: white;
+        }
+        
+        .disconnected {
+            background-color: rgba(244, 67, 54, 0.8);
+            color: white;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header-title {
@@ -434,6 +458,9 @@
     <div class="bg-pattern"></div>
     <div class="islamic-pattern"></div>
     
+    <!-- Firebase connection status -->
+    <div class="connection-status disconnected" id="connectionStatus">در حال اتصال به سرور...</div>
+    
     <!-- Header -->
     <div class="header">
         <h1 class="header-title">صلوات شمار برای مادر</h1>
@@ -486,11 +513,26 @@
     <div class="report-section">
         <h2 class="report-title">گزارش صلوات‌ها</h2>
         <div class="report-list" id="reportList">
-            <div class="empty-report">هیچ صلواتی ثبت نشده است</div>
+            <div class="empty-report">در حال بارگذاری گزارش‌ها...</div>
         </div>
     </div>
     
     <script>
+        // Initialize Firebase with your configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAPreruzWdR6CNsionvk_T38K7Txic1cUI",
+            authDomain: "salavatshomarm.firebaseapp.com",
+            databaseURL: "https://salavatshomarm-default-rtdb.firebaseio.com",
+            projectId: "salavatshomarm",
+            storageBucket: "salavatshomarm.firebasestorage.app",
+            messagingSenderId: "611936453964",
+            appId: "1:611936453964:web:13ef3b711788523e0a3be9"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        
         // Initialize data
         let salavatCounter = 0;
         let selectedMultipleCount = 0;
@@ -508,35 +550,22 @@
         const setNameBtn = document.getElementById('setName');
         const currentUserElement = document.getElementById('currentUser');
         const reportListElement = document.getElementById('reportList');
+        const connectionStatusElement = document.getElementById('connectionStatus');
         
         // Load data from localStorage
-        function loadData() {
-            const savedCounter = localStorage.getItem('salavatCounter');
+        function loadLocalData() {
             const savedUserName = localStorage.getItem('userName');
-            const savedReports = localStorage.getItem('salavatReports');
-            
-            if (savedCounter) {
-                salavatCounter = parseInt(savedCounter);
-                counterElement.textContent = salavatCounter;
-            }
             
             if (savedUserName) {
                 userName = savedUserName;
                 currentUserElement.querySelector('span').textContent = userName;
                 userNameInput.value = userName;
             }
-            
-            if (savedReports) {
-                salavatReports = JSON.parse(savedReports);
-                updateReportList();
-            }
         }
         
         // Save data to localStorage
-        function saveData() {
-            localStorage.setItem('salavatCounter', salavatCounter);
+        function saveLocalData() {
             localStorage.setItem('userName', userName);
-            localStorage.setItem('salavatReports', JSON.stringify(salavatReports));
         }
         
         // Update counter display
@@ -544,23 +573,16 @@
             counterElement.textContent = salavatCounter;
         }
         
-        // Add salavat report
+        // Add salavat report to Firebase
         function addSalavatReport(count) {
             const report = {
                 name: userName,
                 count: count,
-                timestamp: new Date()
+                timestamp: new Date().toISOString()
             };
             
-            salavatReports.unshift(report);
-            
-            // Keep only the last 20 reports
-            if (salavatReports.length > 20) {
-                salavatReports = salavatReports.slice(0, 20);
-            }
-            
-            updateReportList();
-            saveData();
+            // Add to Firebase
+            database.ref('salavatReports').push(report);
         }
         
         // Update report list
@@ -572,11 +594,19 @@
             
             reportListElement.innerHTML = '';
             
-            salavatReports.forEach(report => {
+            // Sort reports by timestamp (newest first)
+            const sortedReports = [...salavatReports].sort((a, b) => {
+                return new Date(b.timestamp) - new Date(a.timestamp);
+            });
+            
+            // Show only the last 20 reports
+            const recentReports = sortedReports.slice(0, 20);
+            
+            recentReports.forEach(report => {
                 const reportItem = document.createElement('div');
                 reportItem.className = 'report-item';
                 
-                const timeAgo = getTimeAgo(report.timestamp);
+                const timeAgo = getTimeAgo(new Date(report.timestamp));
                 
                 reportItem.innerHTML = `
                     <div class="report-user">${report.name}</div>
@@ -607,12 +637,40 @@
             }
         }
         
+        // Listen for connection state
+        const connectedRef = database.ref('.info/connected');
+        connectedRef.on('value', (snap) => {
+            if (snap.val() === true) {
+                connectionStatusElement.textContent = 'متصل به سرور';
+                connectionStatusElement.className = 'connection-status connected';
+            } else {
+                connectionStatusElement.textContent = 'قطع از سرور';
+                connectionStatusElement.className = 'connection-status disconnected';
+            }
+        });
+        
+        // Listen for salavat reports from Firebase
+        database.ref('salavatReports').on('value', (snapshot) => {
+            const data = snapshot.val();
+            salavatReports = [];
+            
+            if (data) {
+                Object.keys(data).forEach(key => {
+                    salavatReports.push(data[key]);
+                });
+            }
+            
+            updateReportList();
+            
+            // Calculate total salavat count
+            const totalSalavat = salavatReports.reduce((total, report) => total + report.count, 0);
+            salavatCounter = totalSalavat;
+            updateCounter();
+        });
+        
         // Single salavat button click
         singleSalavatBtn.addEventListener('click', () => {
-            salavatCounter++;
-            updateCounter();
             addSalavatReport(1);
-            saveData();
         });
         
         // Salavat options click
@@ -632,10 +690,7 @@
         // Add multiple salavats button click
         addMultipleBtn.addEventListener('click', () => {
             if (selectedMultipleCount > 0) {
-                salavatCounter += selectedMultipleCount;
-                updateCounter();
                 addSalavatReport(selectedMultipleCount);
-                saveData();
                 
                 // Reset selection
                 salavatOptions.forEach(opt => opt.classList.remove('selected'));
@@ -648,10 +703,7 @@
             const customCount = parseInt(customCountInput.value);
             
             if (customCount && customCount > 0) {
-                salavatCounter += customCount;
-                updateCounter();
                 addSalavatReport(customCount);
-                saveData();
                 
                 // Clear input
                 customCountInput.value = '';
@@ -665,12 +717,12 @@
             if (newName) {
                 userName = newName;
                 currentUserElement.querySelector('span').textContent = userName;
-                saveData();
+                saveLocalData();
             }
         });
         
-        // Load data when page loads
-        window.addEventListener('load', loadData);
+        // Load local data when page loads
+        window.addEventListener('load', loadLocalData);
     </script>
 </body>
 </html>
