@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مراسم چهلمین روز درگذشت</title>
-    <link rel="icon" type="image/png" href="https://www.beytoote.com/images/stories/fun/motherword-photo02-4.jpg">
+    <title>صلوات شمار برای مادر</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -28,6 +27,7 @@
             overflow-y: auto;
             position: relative;
             padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
         }
         
         /* Background pattern */
@@ -35,263 +35,9 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d7ccc8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.4;
+            background: radial-gradient(circle, rgba(62, 39, 35, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
             z-index: 1;
-        }
-        
-        /* Candles */
-        .candles-container {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 5%;
-            z-index: 2;
-            pointer-events: none;
-        }
-        
-        .candles-left, .candles-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            height: 80%;
-        }
-        
-        .candle {
-            width: 20px;
-            height: 100px;
-            background: linear-gradient(to bottom, #f5f5f0, #d7ccc8);
-            border-radius: 3px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            margin: 20px 0;
-        }
-        
-        .candle::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, #ff9d00, #ff6200);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            box-shadow: 0 0 15px #ff6200, 0 0 30px #ff9d00;
-            animation: flicker 1.5s infinite alternate;
-        }
-        
-        .candle::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-        }
-        
-        @keyframes flicker {
-            0%, 100% {
-                opacity: 1;
-                transform: translateX(-50%) scale(1);
-            }
-            50% {
-                opacity: 0.8;
-                transform: translateX(-50%) scale(0.95);
-            }
-        }
-        
-        /* Plants decoration */
-        .plants-container {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 3%;
-            z-index: 2;
-            pointer-events: none;
-        }
-        
-        .plant {
-            width: 120px;
-            height: 200px;
-            position: relative;
-            opacity: 0.8;
-        }
-        
-        .plant-top {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 150px;
-            background: radial-gradient(ellipse at top, #2e7d32, #1b5e20);
-            border-radius: 50% 50% 40% 40%;
-        }
-        
-        .plant-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 60px;
-            background: linear-gradient(to bottom, #5d4037, #3e2723);
-            border-radius: 5px;
-        }
-        
-        /* Golden banner */
-        .golden-banner {
-            position: relative;
-            width: 90%;
-            max-width: 800px;
-            height: 80px;
-            background: linear-gradient(135deg, #d4af37, #f9f295, #d4af37);
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 3;
-            padding: 0 20px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .banner-text {
-            font-family: 'Lalezar', cursive;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #3e2723;
-            text-align: center;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-        }
-        
-        /* Main container */
-        .memorial-container {
-            background: rgba(62, 39, 35, 0.9);
-            border-radius: 15px;
-            padding: 40px;
-            max-width: 800px;
-            width: 90%;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(5px);
-            position: relative;
-            z-index: 4;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        /* Header */
-        .memorial-header {
-            margin-bottom: 30px;
-        }
-        
-        .memorial-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #f9f295;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        .memorial-subtitle {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: #d7ccc8;
-            margin-bottom: 20px;
-        }
-        .highlight-name {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #f9f295;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        /* Content */
-        .memorial-content {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin: 20px 0;
-            color: #e0e0e0;
-            text-align: justify;
-        }
-        
-        /* Details */
-        .memorial-details {
-            background: rgba(46, 34, 30, 0.7);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .detail-item {
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 15px;
-        }
-        
-        .detail-icon {
-            color: #d4af37;
-            font-size: 1.3rem;
-            width: 30px;
-            text-align: center;
-        }
-        
-        .detail-text {
-            font-size: 1.2rem;
-            text-align: right;
-        }
-        
-        /* Footer */
-        .memorial-footer {
-            margin-top: 30px;
-            font-size: 1.1rem;
-            color: #d7ccc8;
-            font-style: italic;
-            text-align: center;
-        }
-        
-        /* Decorative elements */
-        .decoration {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .decoration::before,
-        .decoration::after {
-            content: '';
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent);
-            border-radius: 50%;
-        }
-        
-        .decoration::before {
-            top: -50px;
-            right: -50px;
-        }
-        
-        .decoration::after {
-            bottom: -50px;
-            left: -50px;
         }
         
         /* Islamic pattern */
@@ -299,112 +45,386 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50,15 L65,35 L85,35 L70,50 L85,65 L65,65 L50,85 L35,65 L15,65 L30,50 L15,35 L35,35 Z' fill='none' stroke='%23d4af37' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,5 L25,15 L35,15 L27,22 L30,32 L20,25 L10,32 L13,22 L5,15 L15,15 Z' fill='none' stroke='%23d4af37' stroke-width='0.5' opacity='0.2'/%3E%3C/svg%3E");
             opacity: 0.2;
             z-index: 1;
         }
         
+        /* Header */
+        .header {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 30px;
+            z-index: 3;
+        }
+        
+        .header-title {
+            font-family: 'Lalezar', cursive;
+            font-size: 2.5rem;
+            color: #f9f295;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: #d7ccc8;
+        }
+        
+        /* Main container */
+        .main-container {
+            background: rgba(62, 39, 35, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 3;
+            margin-bottom: 30px;
+        }
+        
+        /* Salavat counter */
+        .salavat-counter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .counter-display {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f9f295;
+            margin-bottom: 20px;
+        }
+        
+        .salavat-button {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #f9f295, #d4af37);
+            border: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .salavat-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        
+        .salavat-button:active {
+            transform: scale(0.95);
+        }
+        
+        .salavat-button i {
+            font-size: 3rem;
+            color: #3e2723;
+        }
+        
+        .salavat-text {
+            font-size: 1.5rem;
+            color: #d7ccc8;
+            margin-top: 10px;
+        }
+        
+        /* Multiple salavat section */
+        .multiple-salavat {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: #f9f295;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .salavat-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .salavat-option {
+            background: rgba(46, 34, 30, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 10px 20px;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .salavat-option:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .salavat-option.selected {
+            background: rgba(212, 175, 55, 0.4);
+            border-color: #d4af37;
+        }
+        
+        .add-multiple-btn {
+            display: block;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #d4af37, #f9f295, #d4af37);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #3e2723;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .add-multiple-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Custom salavat section */
+        .custom-salavat {
+            margin-bottom: 30px;
+        }
+        
+        .custom-input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .custom-input {
+            background: rgba(46, 34, 30, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 10px 15px;
+            color: #e0e0e0;
+            width: 150px;
+            text-align: center;
+        }
+        
+        .custom-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .add-custom-btn {
+            background: linear-gradient(135deg, #d4af37, #f9f295, #d4af37);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #3e2723;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .add-custom-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* User name section */
+        .user-name-section {
+            margin-bottom: 30px;
+        }
+        
+        .user-input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .user-input {
+            background: rgba(46, 34, 30, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 10px 15px;
+            color: #e0e0e0;
+            width: 200px;
+            text-align: center;
+        }
+        
+        .user-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .set-name-btn {
+            background: linear-gradient(135deg, #d4af37, #f9f295, #d4af37);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #3e2723;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .set-name-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .current-user {
+            text-align: center;
+            color: #d7ccc8;
+            font-size: 1.1rem;
+        }
+        
+        .current-user span {
+            color: #f9f295;
+            font-weight: 500;
+        }
+        
+        /* Report section */
+        .report-section {
+            background: rgba(46, 34, 30, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .report-title {
+            font-size: 1.5rem;
+            color: #f9f295;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .report-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .report-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .report-item:last-child {
+            border-bottom: none;
+        }
+        
+        .report-user {
+            font-weight: 500;
+            color: #e0e0e0;
+        }
+        
+        .report-count {
+            color: #f9f295;
+            font-weight: 700;
+        }
+        
+        .report-time {
+            color: #a0a0b0;
+            font-size: 0.9rem;
+        }
+        
+        .empty-report {
+            text-align: center;
+            color: #a0a0b0;
+            padding: 20px;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
-            .golden-banner {
-                height: 60px;
-                margin-top: 10px;
-                margin-bottom: 20px;
+            .header-title {
+                font-size: 2rem;
             }
             
-            .banner-text {
+            .main-container {
+                padding: 20px 15px;
+            }
+            
+            .counter-display {
                 font-size: 2.5rem;
             }
             
-            .memorial-container {
-                padding: 25px 15px;
-                margin-bottom: 20px;
+            .salavat-button {
+                width: 120px;
+                height: 120px;
             }
             
-            .memorial-title {
-                font-size: 1.6rem;
+            .salavat-button i {
+                font-size: 2.5rem;
             }
             
-            .memorial-subtitle {
+            .salavat-text {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
                 font-size: 1.3rem;
             }
             
-            .memorial-content {
-                font-size: 1.1rem;
+            .custom-input {
+                width: 120px;
             }
             
-            .candle {
-                height: 80px;
-                width: 15px;
-            }
-            
-            .plant {
-                width: 80px;
-                height: 150px;
-            }
-            
-            .plant-top {
-                width: 70px;
-                height: 110px;
-            }
-            
-            .detail-text {
-                font-size: 1.1rem;
-            }
-            
-            .candles-left, .candles-right {
-                height: 60%;
-            }
-            
-            .plants-container {
-                display: none;
+            .user-input {
+                width: 150px;
             }
         }
         
         @media (max-width: 480px) {
-            .golden-banner {
-                height: 50px;
+            .header-title {
+                font-size: 1.8rem;
             }
             
-            .banner-text {
+            .counter-display {
                 font-size: 2rem;
             }
             
-            .memorial-container {
-                padding: 20px 10px;
-                width: 95%;
+            .salavat-button {
+                width: 100px;
+                height: 100px;
             }
             
-            .memorial-title {
-                font-size: 1.4rem;
+            .salavat-button i {
+                font-size: 2rem;
             }
             
-            .memorial-subtitle {
-              font-size: 2.5rem;     /* بزرگ‌تر شدن متن */
-              margin-top: 20px;      /* فاصله از متن قبلی */
-              color: #ccff00;        /* زرد فسفری */
-              font-weight: bold;     /* ضخیم‌تر شدن */
+            .salavat-options {
+                gap: 10px;
             }
             
-            .memorial-content {
-                font-size: 1rem;
+            .salavat-option {
+                padding: 8px 15px;
+                font-size: 0.9rem;
             }
             
-            .detail-text {
-                font-size: 1rem;
+            .custom-input {
+                width: 100px;
             }
             
-            .detail-icon {
-                font-size: 1.1rem;
-            }
-            
-            .candle {
-                height: 60px;
-                width: 12px;
-            }
-            
-            .candles-left, .candles-right {
-                padding: 0 2%;
+            .user-input {
+                width: 120px;
             }
         }
     </style>
@@ -414,107 +434,243 @@
     <div class="bg-pattern"></div>
     <div class="islamic-pattern"></div>
     
-    <!-- Candles -->
-    <div class="candles-container">
-        <div class="candles-left">
-            <div class="candle" style="animation-delay: 0.2s;"></div>
-            <div class="candle" style="animation-delay: 0.5s;"></div>
-            <div class="candle" style="animation-delay: 0.8s;"></div>
-        </div>
-        <div class="candles-right">
-            <div class="candle" style="animation-delay: 0.3s;"></div>
-            <div class="candle" style="animation-delay: 0.6s;"></div>
-            <div class="candle" style="animation-delay: 0.9s;"></div>
-        </div>
-    </div>
-    
-    <!-- Plants decoration -->
-    <div class="plants-container">
-        <div class="plant" style="top: 10%;">
-            <div class="plant-top"></div>
-            <div class="plant-bottom"></div>
-        </div>
-        <div class="plant" style="top: 40%;">
-            <div class="plant-top"></div>
-            <div class="plant-bottom"></div>
-        </div>
-        <div class="plant" style="top: 70%;">
-            <div class="plant-top"></div>
-            <div class="plant-bottom"></div>
-        </div>
-        <div class="plant" style="top: 10%; right: 0; left: auto;">
-            <div class="plant-top"></div>
-            <div class="plant-bottom"></div>
-        </div>
-        <div class="plant" style="top: 40%; right: 0; left: auto;">
-            <div class="plant-top"></div>
-            <div class="plant-bottom"></div>
-        </div>
-        <div class="plant" style="top: 70%; right: 0; left: auto;">
-            <div class="plant-top"></div>
-            <div class="plant-bottom"></div>
-        </div>
-    </div>
-    
-    <!-- Golden banner -->
-    <div class="golden-banner">
-        <div class="banner-text">مادر</div>
+    <!-- Header -->
+    <div class="header">
+        <h1 class="header-title">صلوات شمار برای مادر</h1>
+        <p class="header-subtitle">به مناسبت چهلمین روز درگذشت حاجیه خانم مجتهدی</p>
     </div>
     
     <!-- Main container -->
-    <div class="memorial-container">
-        <div class="decoration"></div>
-        
-        <div class="memorial-header">
-            <h1 class="memorial-title">به مناسبت چهلمین روز درگذشت</h1>
-            <h2 class="memorial-title">بانوی با اخلاص و مهربان<br>
-            <h1 class="highlight-name">حاجیه خانم مجتهدی<br>    
+    <div class="main-container">
+        <!-- Salavat counter -->
+        <div class="salavat-counter">
+            <div class="counter-display" id="counter">0</div>
+            <button class="salavat-button" id="singleSalavat">
+                <i class="fas fa-hands-praying"></i>
+            </button>
+            <p class="salavat-text">صلوات</p>
         </div>
         
-        <!-- Content -->
-        <div class="memorial-content">
-            مجلس یادبودی در روز سه شنبه ۱۴۰۴/۵/۲۸ از ساعت ۱۸ در صحن امام حسین علیه السلام (باغ طوطی) برگذاری می‌شود.
-            همچنین صرف شام از ساعت ۲۰ در دار الضیافه حرم حضرت عبدالعظیم (ع) خواهد بود.
+        <!-- Multiple salavat section -->
+        <div class="multiple-salavat">
+            <h2 class="section-title">صلوات multiple</h2>
+            <div class="salavat-options">
+                <div class="salavat-option" data-count="10">10 صلوات</div>
+                <div class="salavat-option" data-count="100">100 صلوات</div>
+                <div class="salavat-option" data-count="1000">1000 صلوات</div>
+            </div>
+            <button class="add-multiple-btn" id="addMultiple">افزودن صلوات‌های انتخاب شده</button>
         </div>
         
-        <!-- Details -->
-        <div class="memorial-details">
-            <div class="detail-item">
-                <i class="fas fa-calendar-alt detail-icon"></i>
-                <span class="detail-text">۱۴۰۴/۵/۲۸ (سه شنبه)</span>
-            </div>
-            <div class="detail-item">
-                <i class="fas fa-clock detail-icon"></i>
-                <span class="detail-text">ساعت ۱۸</span>
-            </div>
-            <div class="detail-item">
-                <i class="fas fa-map-marker-alt detail-icon"></i>
-                <span class="detail-text">صحن امام حسین علیه السلام (باغ طوطی)</span>
-            </div>
-            <div class="detail-item">
-                <i class="fas fa-utensils detail-icon"></i>
-                <span class="detail-text">صرف شام ساعت ۲۰ - دار الضیافه حرم حضرت عبدالعظیم (ع)</span>
+        <!-- Custom salavat section -->
+        <div class="custom-salavat">
+            <h2 class="section-title">صلوات دلخواه</h2>
+            <div class="custom-input-group">
+                <input type="number" class="custom-input" id="customCount" placeholder="تعداد صلوات" min="1">
+                <button class="add-custom-btn" id="addCustom">افزودن</button>
             </div>
         </div>
         
-        <!-- Footer -->
-        <div class="memorial-footer">
-            تشریف فرمایی شما موجب شادی روح آن مرحومه و تسلی خاطر بازماندگان است<br>
-            از طرف خانواده شریعتمدار طهرانی
+        <!-- User name section -->
+        <div class="user-name-section">
+            <h2 class="section-title">نام شما</h2>
+            <div class="user-input-group">
+                <input type="text" class="user-input" id="userName" placeholder="نام خود را وارد کنید">
+                <button class="set-name-btn" id="setName">ثبت نام</button>
+            </div>
+            <div class="current-user" id="currentUser">نام کاربر: <span>مهمان</span></div>
         </div>
     </div>
-<audio id="myAudio" autoplay>
-  <source src="https://dl.tabamusic.com/Madahi/Poyanfar%20-%20Madar%20Be%20Tapeshhaye%20Del%20Heydar%20(128).mp3" type="audio/mpeg">
-  مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
-</audio>
-
-<script>
-  window.addEventListener('load', function() {
-    const audio = document.getElementById("myAudio");
-    audio.play().catch(err => {
-      console.log("Autoplay ممکنه بلاک شده باشه:", err);
-    });
-  });
-</script>
+    
+    <!-- Report section -->
+    <div class="report-section">
+        <h2 class="report-title">گزارش صلوات‌ها</h2>
+        <div class="report-list" id="reportList">
+            <div class="empty-report">هیچ صلواتی ثبت نشده است</div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize data
+        let salavatCounter = 0;
+        let selectedMultipleCount = 0;
+        let userName = "مهمان";
+        let salavatReports = [];
+        
+        // DOM elements
+        const counterElement = document.getElementById('counter');
+        const singleSalavatBtn = document.getElementById('singleSalavat');
+        const salavatOptions = document.querySelectorAll('.salavat-option');
+        const addMultipleBtn = document.getElementById('addMultiple');
+        const customCountInput = document.getElementById('customCount');
+        const addCustomBtn = document.getElementById('addCustom');
+        const userNameInput = document.getElementById('userName');
+        const setNameBtn = document.getElementById('setName');
+        const currentUserElement = document.getElementById('currentUser');
+        const reportListElement = document.getElementById('reportList');
+        
+        // Load data from localStorage
+        function loadData() {
+            const savedCounter = localStorage.getItem('salavatCounter');
+            const savedUserName = localStorage.getItem('userName');
+            const savedReports = localStorage.getItem('salavatReports');
+            
+            if (savedCounter) {
+                salavatCounter = parseInt(savedCounter);
+                counterElement.textContent = salavatCounter;
+            }
+            
+            if (savedUserName) {
+                userName = savedUserName;
+                currentUserElement.querySelector('span').textContent = userName;
+                userNameInput.value = userName;
+            }
+            
+            if (savedReports) {
+                salavatReports = JSON.parse(savedReports);
+                updateReportList();
+            }
+        }
+        
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('salavatCounter', salavatCounter);
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('salavatReports', JSON.stringify(salavatReports));
+        }
+        
+        // Update counter display
+        function updateCounter() {
+            counterElement.textContent = salavatCounter;
+        }
+        
+        // Add salavat report
+        function addSalavatReport(count) {
+            const report = {
+                name: userName,
+                count: count,
+                timestamp: new Date()
+            };
+            
+            salavatReports.unshift(report);
+            
+            // Keep only the last 20 reports
+            if (salavatReports.length > 20) {
+                salavatReports = salavatReports.slice(0, 20);
+            }
+            
+            updateReportList();
+            saveData();
+        }
+        
+        // Update report list
+        function updateReportList() {
+            if (salavatReports.length === 0) {
+                reportListElement.innerHTML = '<div class="empty-report">هیچ صلواتی ثبت نشده است</div>';
+                return;
+            }
+            
+            reportListElement.innerHTML = '';
+            
+            salavatReports.forEach(report => {
+                const reportItem = document.createElement('div');
+                reportItem.className = 'report-item';
+                
+                const timeAgo = getTimeAgo(report.timestamp);
+                
+                reportItem.innerHTML = `
+                    <div class="report-user">${report.name}</div>
+                    <div class="report-count">${report.count} صلوات</div>
+                    <div class="report-time">${timeAgo}</div>
+                `;
+                
+                reportListElement.appendChild(reportItem);
+            });
+        }
+        
+        // Get time ago string
+        function getTimeAgo(date) {
+            const now = new Date();
+            const diffInSeconds = Math.floor((now - date) / 1000);
+            
+            if (diffInSeconds < 60) {
+                return `همین الان`;
+            } else if (diffInSeconds < 3600) {
+                const minutes = Math.floor(diffInSeconds / 60);
+                return `${minutes} دقیقه پیش`;
+            } else if (diffInSeconds < 86400) {
+                const hours = Math.floor(diffInSeconds / 3600);
+                return `${hours} ساعت پیش`;
+            } else {
+                const days = Math.floor(diffInSeconds / 86400);
+                return `${days} روز پیش`;
+            }
+        }
+        
+        // Single salavat button click
+        singleSalavatBtn.addEventListener('click', () => {
+            salavatCounter++;
+            updateCounter();
+            addSalavatReport(1);
+            saveData();
+        });
+        
+        // Salavat options click
+        salavatOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                salavatOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Set the selected count
+                selectedMultipleCount = parseInt(option.dataset.count);
+            });
+        });
+        
+        // Add multiple salavats button click
+        addMultipleBtn.addEventListener('click', () => {
+            if (selectedMultipleCount > 0) {
+                salavatCounter += selectedMultipleCount;
+                updateCounter();
+                addSalavatReport(selectedMultipleCount);
+                saveData();
+                
+                // Reset selection
+                salavatOptions.forEach(opt => opt.classList.remove('selected'));
+                selectedMultipleCount = 0;
+            }
+        });
+        
+        // Add custom salavat button click
+        addCustomBtn.addEventListener('click', () => {
+            const customCount = parseInt(customCountInput.value);
+            
+            if (customCount && customCount > 0) {
+                salavatCounter += customCount;
+                updateCounter();
+                addSalavatReport(customCount);
+                saveData();
+                
+                // Clear input
+                customCountInput.value = '';
+            }
+        });
+        
+        // Set name button click
+        setNameBtn.addEventListener('click', () => {
+            const newName = userNameInput.value.trim();
+            
+            if (newName) {
+                userName = newName;
+                currentUserElement.querySelector('span').textContent = userName;
+                saveData();
+            }
+        });
+        
+        // Load data when page loads
+        window.addEventListener('load', loadData);
+    </script>
 </body>
 </html>
