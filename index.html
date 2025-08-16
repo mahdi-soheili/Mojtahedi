@@ -6,9 +6,6 @@
     <title>صلوات شمار برای مادر</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&family=Lalezar&display=swap');
         
@@ -91,6 +88,70 @@
             margin-bottom: 30px;
         }
         
+        /* User name section - moved up */
+        .user-name-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: #f9f295;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .user-input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .user-input {
+            background: rgba(46, 34, 30, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 10px 15px;
+            color: #e0e0e0;
+            width: 200px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .user-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .set-name-btn {
+            background: linear-gradient(135deg, #d4af37, #f9f295, #d4af37);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #3e2723;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .set-name-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .current-user {
+            text-align: center;
+            color: #d7ccc8;
+            font-size: 1.1rem;
+        }
+        
+        .current-user span {
+            color: #f9f295;
+            font-weight: 500;
+        }
+        
         /* Salavat counter */
         .salavat-counter {
             display: flex;
@@ -141,16 +202,33 @@
             margin-top: 10px;
         }
         
+        .single-salavat-count {
+            font-size: 1.2rem;
+            color: #f9f295;
+            margin-top: 10px;
+        }
+        
+        .submit-single-btn {
+            background: linear-gradient(135deg, #d4af37, #f9f295, #d4af37);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #3e2723;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 15px;
+        }
+        
+        .submit-single-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
         /* Multiple salavat section */
         .multiple-salavat {
             margin-bottom: 30px;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            color: #f9f295;
-            margin-bottom: 15px;
-            text-align: center;
         }
         
         .salavat-options {
@@ -220,6 +298,7 @@
             color: #e0e0e0;
             width: 150px;
             text-align: center;
+            font-size: 0.9rem;
         }
         
         .custom-input:focus {
@@ -243,62 +322,6 @@
         .add-custom-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* User name section */
-        .user-name-section {
-            margin-bottom: 30px;
-        }
-        
-        .user-input-group {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .user-input {
-            background: rgba(46, 34, 30, 0.7);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 10px;
-            padding: 10px 15px;
-            color: #e0e0e0;
-            width: 200px;
-            text-align: center;
-        }
-        
-        .user-input:focus {
-            outline: none;
-            border-color: #d4af37;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-        
-        .set-name-btn {
-            background: linear-gradient(135deg, #d4af37, #f9f295, #d4af37);
-            border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #3e2723;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .set-name-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .current-user {
-            text-align: center;
-            color: #d7ccc8;
-            font-size: 1.1rem;
-        }
-        
-        .current-user span {
-            color: #f9f295;
-            font-weight: 500;
         }
         
         /* Report section */
@@ -355,7 +378,7 @@
             padding: 20px;
         }
         
-        /* Firebase connection status */
+        /* Connection status */
         .connection-status {
             position: fixed;
             top: 10px;
@@ -458,7 +481,7 @@
     <div class="bg-pattern"></div>
     <div class="islamic-pattern"></div>
     
-    <!-- Firebase connection status -->
+    <!-- Connection status -->
     <div class="connection-status disconnected" id="connectionStatus">در حال اتصال به سرور...</div>
     
     <!-- Header -->
@@ -469,6 +492,16 @@
     
     <!-- Main container -->
     <div class="main-container">
+        <!-- User name section - moved up -->
+        <div class="user-name-section">
+            <h2 class="section-title">در صورت تمایل نام خود را وارد کنید</h2>
+            <div class="user-input-group">
+                <input type="text" class="user-input" id="userName" placeholder="نام شما">
+                <button class="set-name-btn" id="setName">ثبت نام</button>
+            </div>
+            <div class="current-user" id="currentUser">نام کاربر: <span>مهمان</span></div>
+        </div>
+        
         <!-- Salavat counter -->
         <div class="salavat-counter">
             <div class="counter-display" id="counter">0</div>
@@ -476,11 +509,13 @@
                 <i class="fas fa-hands-praying"></i>
             </button>
             <p class="salavat-text">صلوات</p>
+            <div class="single-salavat-count" id="singleSalavatCount">صلوات‌های شما: 0</div>
+            <button class="submit-single-btn" id="submitSingle">ثبت صلوات‌های تکی</button>
         </div>
         
         <!-- Multiple salavat section -->
         <div class="multiple-salavat">
-            <h2 class="section-title">صلوات multiple</h2>
+            <h2 class="section-title">انتخاب صلوات</h2>
             <div class="salavat-options">
                 <div class="salavat-option" data-count="10">10 صلوات</div>
                 <div class="salavat-option" data-count="100">100 صلوات</div>
@@ -493,19 +528,9 @@
         <div class="custom-salavat">
             <h2 class="section-title">صلوات دلخواه</h2>
             <div class="custom-input-group">
-                <input type="number" class="custom-input" id="customCount" placeholder="تعداد صلوات" min="1">
+                <input type="number" class="custom-input" id="customCount" placeholder="تعداد" min="1">
                 <button class="add-custom-btn" id="addCustom">افزودن</button>
             </div>
-        </div>
-        
-        <!-- User name section -->
-        <div class="user-name-section">
-            <h2 class="section-title">نام شما</h2>
-            <div class="user-input-group">
-                <input type="text" class="user-input" id="userName" placeholder="نام خود را وارد کنید">
-                <button class="set-name-btn" id="setName">ثبت نام</button>
-            </div>
-            <div class="current-user" id="currentUser">نام کاربر: <span>مهمان</span></div>
         </div>
     </div>
     
@@ -518,30 +543,18 @@
     </div>
     
     <script>
-        // Initialize Firebase with your configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAPreruzWdR6CNsionvk_T38K7Txic1cUI",
-            authDomain: "salavatshomarm.firebaseapp.com",
-            databaseURL: "https://salavatshomarm-default-rtdb.firebaseio.com",
-            projectId: "salavatshomarm",
-            storageBucket: "salavatshomarm.firebasestorage.app",
-            messagingSenderId: "611936453964",
-            appId: "1:611936453964:web:13ef3b711788523e0a3be9"
-        };
-        
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        
         // Initialize data
         let salavatCounter = 0;
         let selectedMultipleCount = 0;
         let userName = "مهمان";
         let salavatReports = [];
+        let singleSalavatCount = 0; // For accumulating single salavats
         
         // DOM elements
         const counterElement = document.getElementById('counter');
         const singleSalavatBtn = document.getElementById('singleSalavat');
+        const submitSingleBtn = document.getElementById('submitSingle');
+        const singleSalavatCountElement = document.getElementById('singleSalavatCount');
         const salavatOptions = document.querySelectorAll('.salavat-option');
         const addMultipleBtn = document.getElementById('addMultiple');
         const customCountInput = document.getElementById('customCount');
@@ -551,6 +564,11 @@
         const currentUserElement = document.getElementById('currentUser');
         const reportListElement = document.getElementById('reportList');
         const connectionStatusElement = document.getElementById('connectionStatus');
+        
+        // GitHub Gist configuration
+        const gistId = "5739091180bc5ef5c5b1ac8d549b70dd";
+        const gistFilename = "salavat.json";
+        const githubToken = "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";
         
         // Load data from localStorage
         function loadLocalData() {
@@ -573,16 +591,97 @@
             counterElement.textContent = salavatCounter;
         }
         
-        // Add salavat report to Firebase
-        function addSalavatReport(count) {
+        // Update single salavat count display
+        function updateSingleSalavatCount() {
+            singleSalavatCountElement.textContent = `صلوات‌های شما: ${singleSalavatCount}`;
+        }
+        
+        // Get data from GitHub Gist
+        async function getDataFromGist() {
+            try {
+                const response = await fetch(`https://api.github.com/gists/${gistId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `token ${githubToken}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const gistData = await response.json();
+                    const fileContent = JSON.parse(gistData.files[gistFilename].content);
+                    return fileContent;
+                } else {
+                    console.error('Error fetching data:', response.status);
+                    return [];
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                return [];
+            }
+        }
+        
+        // Save data to GitHub Gist
+        async function saveDataToGist(data) {
+            try {
+                const response = await fetch(`https://api.github.com/gists/${gistId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `token ${githubToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        files: {
+                            [gistFilename]: {
+                                content: JSON.stringify(data)
+                            }
+                        }
+                    })
+                });
+                
+                if (response.ok) {
+                    return true;
+                } else {
+                    console.error('Error saving data:', response.status);
+                    return false;
+                }
+            } catch (error) {
+                console.error('Error saving data:', error);
+                return false;
+            }
+        }
+        
+        // Add salavat report
+        async function addSalavatReport(count) {
             const report = {
                 name: userName,
                 count: count,
                 timestamp: new Date().toISOString()
             };
             
-            // Add to Firebase
-            database.ref('salavatReports').push(report);
+            // Get current data
+            const currentData = await getDataFromGist();
+            
+            // Add new report
+            currentData.push(report);
+            
+            // Save updated data
+            const success = await saveDataToGist(currentData);
+            
+            if (success) {
+                updateReportList();
+                
+                // Calculate total salavat count
+                const totalSalavat = currentData.reduce((total, report) => total + report.count, 0);
+                salavatCounter = totalSalavat;
+                updateCounter();
+                
+                // Show connection status
+                connectionStatusElement.textContent = 'متصل به سرور';
+                connectionStatusElement.className = 'connection-status connected';
+            } else {
+                connectionStatusElement.textContent = 'خطا در اتصال به سرور';
+                connectionStatusElement.className = 'connection-status disconnected';
+            }
         }
         
         // Update report list
@@ -637,40 +736,43 @@
             }
         }
         
-        // Listen for connection state
-        const connectedRef = database.ref('.info/connected');
-        connectedRef.on('value', (snap) => {
-            if (snap.val() === true) {
+        // Load data from server
+        async function loadDataFromServer() {
+            connectionStatusElement.textContent = 'در حال بارگذاری داده‌ها...';
+            connectionStatusElement.className = 'connection-status disconnected';
+            
+            const data = await getDataFromGist();
+            
+            if (data && Array.isArray(data)) {
+                salavatReports = data;
+                updateReportList();
+                
+                // Calculate total salavat count
+                const totalSalavat = salavatReports.reduce((total, report) => total + report.count, 0);
+                salavatCounter = totalSalavat;
+                updateCounter();
+                
                 connectionStatusElement.textContent = 'متصل به سرور';
                 connectionStatusElement.className = 'connection-status connected';
             } else {
-                connectionStatusElement.textContent = 'قطع از سرور';
+                connectionStatusElement.textContent = 'خطا در بارگذاری داده‌ها';
                 connectionStatusElement.className = 'connection-status disconnected';
             }
-        });
+        }
         
-        // Listen for salavat reports from Firebase
-        database.ref('salavatReports').on('value', (snapshot) => {
-            const data = snapshot.val();
-            salavatReports = [];
-            
-            if (data) {
-                Object.keys(data).forEach(key => {
-                    salavatReports.push(data[key]);
-                });
-            }
-            
-            updateReportList();
-            
-            // Calculate total salavat count
-            const totalSalavat = salavatReports.reduce((total, report) => total + report.count, 0);
-            salavatCounter = totalSalavat;
-            updateCounter();
-        });
-        
-        // Single salavat button click
+        // Single salavat button click - just increment local counter
         singleSalavatBtn.addEventListener('click', () => {
-            addSalavatReport(1);
+            singleSalavatCount++;
+            updateSingleSalavatCount();
+        });
+        
+        // Submit single salavats button click
+        submitSingleBtn.addEventListener('click', () => {
+            if (singleSalavatCount > 0) {
+                addSalavatReport(singleSalavatCount);
+                singleSalavatCount = 0;
+                updateSingleSalavatCount();
+            }
         });
         
         // Salavat options click
@@ -721,8 +823,14 @@
             }
         });
         
-        // Load local data when page loads
-        window.addEventListener('load', loadLocalData);
+        // Load data when page loads
+        window.addEventListener('load', () => {
+            loadLocalData();
+            loadDataFromServer();
+            
+            // Refresh data every 30 seconds
+            setInterval(loadDataFromServer, 30000);
+        });
     </script>
 </body>
 </html>
